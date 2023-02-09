@@ -15,7 +15,7 @@ class Solution:
 """
 Explanation:
 
-The code implements a solution to remove duplicates from a list of integers and return the count of unique elements. It uses two variables end and i to traverse the list and keep track of the end of the unique elements. If the current element is not equal to the previous element, it is added to the end of the unique elements and the end variable is incremented by 1. The code returns the value of end, which is the count of unique elements in the list.
+Use two variables end and i to traverse the list and keep track of the end of the unique elements. If the current element is not equal to the previous element, it is added to the end of the unique elements and the end variable is incremented by 1. Once done, return the value of end, which is the count of unique elements in the list.
 
 Notes:
 
