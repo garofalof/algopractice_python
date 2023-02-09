@@ -12,17 +12,33 @@ class Solution:
 
         return end
 
-# Explanation:
-# -Set end to 1
-# -For each index 1 to len of nums:
-# -If curr num equal to prev, continue
-# -Else set num at index end to curr and increase end by 1
-# -Once done, return end
+"""
+Explanation:
 
-# Notes:
-# -Time complexity: O(n)
-# -Space complexity: O(1)
+The code implements a solution to remove duplicates from a list of integers and return the count of unique elements. It uses two variables end and i to traverse the list and keep track of the end of the unique elements. If the current element is not equal to the previous element, it is added to the end of the unique elements and the end variable is incremented by 1. The code returns the value of end, which is the count of unique elements in the list.
 
-uniqueCount = Solution().removeDuplicates([1, 1, 1, 2, 3])
+Notes:
 
-print(f"Unique count is {uniqueCount}")
+Time complexity: O(n), where n is the length of the list nums
+Space complexity: O(1), because the code modifies the input list in-place and only uses a constant amount of extra memory
+"""
+
+# Test 1: Single element in list
+nums = [1]
+unique_count = Solution().removeDuplicates(nums)
+assert unique_count == 1
+
+# Test 2: No duplicates
+nums = [1, 2, 3, 4, 5]
+unique_count = Solution().removeDuplicates(nums)
+assert unique_count == 5
+
+# Test 3: All duplicates
+nums = [1, 1, 1, 1, 1]
+unique_count = Solution().removeDuplicates(nums)
+assert unique_count == 1
+
+# Test 4: Some duplicates
+nums = [1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]
+unique_count = Solution().removeDuplicates(nums)
+assert unique_count == 5

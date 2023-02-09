@@ -22,18 +22,27 @@ class Solution:
 
         return result
 
-# Explanation:
-# -Initialize stack and result as empty arrays
-# -While curr node not null or stack has work:
-# -While curr node not null, push curr to stack and set curr to left child
-# -Once we go all the way left, pop last node off stack and push node val to result
-# -Then set curr to right child and continue
-# -Once done, return result
+"""
+Explanation:
 
-# Notes:
-# -Time complexity: O(n)
-# -Space complexity: O(n)
+Iterate over tree using stack to keep track of nodes. Start by pushing all the left nodes into the stack and then adding the value to the result. Then move to the right node. Repeat until all nodes have been processed.
 
+Notes:
+
+Time complexity: O(n)
+Space complexity: O(n), where n is the number of nodes in the binary tree
+"""
+
+# Test 1: Empty tree
+inorder = Solution().inorderTraversal(None)
+assert inorder == []
+
+# Test 2: Tree w/ 1 node
+t = TreeNode(1)
+inorder = Solution().inorderTraversal(t)
+assert inorder == [1]
+
+# Test 3: Tree w/ multiple nodes
 t = TreeNode(3)
 t.left = TreeNode(2)
 t.right = TreeNode(5)
@@ -41,5 +50,4 @@ t.left.left = TreeNode(1)
 t.left.right = TreeNode(4)
 t.right.right = TreeNode(6)
 inorder = Solution().inorderTraversal(t)
-
-print(f"Inorder traversal is {inorder}")
+assert inorder == [1, 2, 4, 3, 5, 6]
