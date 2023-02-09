@@ -22,7 +22,7 @@ class Solution:
 """
 Explanation:
 
-Set prev to lower - 1 and initialize an empty result list. Iterate over each number in nums, with an additional iteration for the upper + 1 value. If prev + 1 <= curr - 1, calculate and format the missing range, then append it to the result list. Set prev to curr and repeat the process. Return the result list.
+Set variable prev to lower - 1 and initialize an empty result list. Iterate over each number in nums, with an additional iteration for the upper + 1 value. If prev + 1 <= curr - 1, calculate and format the missing range, then append it to the result list. Set prev to curr and repeat the process. Return the result list.
 
 Notes:
 

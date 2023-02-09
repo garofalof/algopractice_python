@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -21,6 +22,7 @@ class Solution:
             root = root.right
 
         return result
+
 
 """
 Explanation:
@@ -50,4 +52,5 @@ t.left.left = TreeNode(1)
 t.left.right = TreeNode(4)
 t.right.right = TreeNode(6)
 inorder = Solution().inorderTraversal(t)
-assert inorder == [1, 2, 4, 3, 5, 6], f"Expected [1, 2, 4, 3, 5, 6], but got {inorder}"
+assert inorder == [1, 2, 4, 3, 5,
+                   6], f"Expected [1, 2, 4, 3, 5, 6], but got {inorder}"

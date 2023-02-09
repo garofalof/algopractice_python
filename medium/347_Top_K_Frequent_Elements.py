@@ -2,21 +2,23 @@ import heapq
 from collections import Counter
 from typing import List
 
+
 class Solution:
-  def topKFrequent(self, nums, k) -> List[int]:
-    heap = []
-    frequency = Counter(nums)
-    freq_list = [(val, key) for key, val in frequency.items()]
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        heap = []
+        frequency = Counter(nums)
+        freq_list = [(val, key) for key, val in frequency.items()]
 
-    for freq in freq_list:
-      if len(heap) < k:
-        heapq.heappush(heap, freq)
-      else:
-        if freq > heap[0]:
-          heapq.heappop(heap)
-          heapq.heappush(heap, freq)
+        for freq in freq_list:
+            if len(heap) < k:
+                heapq.heappush(heap, freq)
+            else:
+                if freq > heap[0]:
+                    heapq.heappop(heap)
+                    heapq.heappush(heap, freq)
 
-    return [val for freq, val in heap]
+        return [val for freq, val in heap]
+
 
 """
 Explanation:
