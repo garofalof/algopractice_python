@@ -35,12 +35,12 @@ Space complexity: O(n), where n is the number of nodes in the binary tree
 
 # Test 1: Empty tree
 inorder = Solution().inorderTraversal(None)
-assert inorder == []
+assert inorder == [], f"Expected [], but got {inorder}"
 
 # Test 2: Tree w/ 1 node
 t = TreeNode(1)
 inorder = Solution().inorderTraversal(t)
-assert inorder == [1]
+assert inorder == [1], f"Expected [1], but got {inorder}"
 
 # Test 3: Tree w/ multiple nodes
 t = TreeNode(3)
@@ -50,4 +50,4 @@ t.left.left = TreeNode(1)
 t.left.right = TreeNode(4)
 t.right.right = TreeNode(6)
 inorder = Solution().inorderTraversal(t)
-assert inorder == [1, 2, 4, 3, 5, 6]
+assert inorder == [1, 2, 4, 3, 5, 6], f"Expected [1, 2, 4, 3, 5, 6], but got {inorder}"

@@ -10,25 +10,29 @@ class Solution:
             curr = nums[i] if i < len(nums) else upper + 1
 
             if prev + 1 <= curr - 1:
-                formatted = f"{prev + 1}" if prev + 1 == curr - 1 else f"{prev + 1}->{curr - 1}"
+                formatted = f"{prev + 1}" if prev + \
+                    1 == curr - 1 else f"{prev + 1}->{curr - 1}"
                 result.append(formatted)
 
             prev = curr
 
         return result
 
-# Explanation:
-# -Set result to empty array and prev to lower - 1
-# -For each num in nums:
-# -Set curr to num at curr index if index within nums, else set to upper + 1
-# -If diff between prev and curr > 1, push formatted range to result
-# -Then set prev to curr and continue
-# -Once done, return result
 
-# Notes:
-# -Time complexity: O(n)
-# -Space complexity: O(1), as we don't count output array as extra space
+"""
+Explanation:
 
-missing = Solution().findMissingRanges([0, 1, 3, 50, 75], 0, 99)
+Set prev to lower - 1 and initialize an empty result list. Iterate over each number in nums, with an additional iteration for the upper + 1 value. If prev + 1 <= curr - 1, calculate and format the missing range, then append it to the result list. Set prev to curr and repeat the process. Return the result list.
 
-print(f"Missing ranges are {missing}")
+Notes:
+
+Time complexity: O(n)
+Space complexity: O(1)
+"""
+
+# Test 1: Empty list
+nums = []
+lower = 0
+upper = 99
+result = Solution().findMissingRanges(nums, lower, upper)
+assert result == ['0->99'], f"Expected ['0->99'], but got {result}"

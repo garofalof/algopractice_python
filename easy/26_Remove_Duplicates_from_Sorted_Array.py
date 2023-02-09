@@ -26,19 +26,19 @@ Space complexity: O(1), because the code modifies the input list in-place and on
 # Test 1: Single element in list
 nums = [1]
 unique_count = Solution().removeDuplicates(nums)
-assert unique_count == 1
+assert unique_count == 1, f"Expected 1, but got {unique_count}"
 
 # Test 2: No duplicates
 nums = [1, 2, 3, 4, 5]
 unique_count = Solution().removeDuplicates(nums)
-assert unique_count == 5
+assert unique_count == 5, f"Expected 5, but got {unique_count}"
 
 # Test 3: All duplicates
 nums = [1, 1, 1, 1, 1]
 unique_count = Solution().removeDuplicates(nums)
-assert unique_count == 1
+assert unique_count == 1, f"Expected 1, but got {unique_count}"
 
 # Test 4: Some duplicates
 nums = [1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 5, 5, 5]
 unique_count = Solution().removeDuplicates(nums)
-assert unique_count == 5
+assert unique_count == 5, f"Expected 5, but got {unique_count}"
