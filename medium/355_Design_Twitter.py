@@ -65,14 +65,14 @@ Time complexity: O(1) for postTweet, follow, and unfollow. O(k) for getNewsFeed,
 Space complexity: O(n), where n is the number of tweets posted by all users.
 """
 
-# Test 1: test single user postTweet and getNewsFeed functionality
+# Test 1: Single user postTweet and getNewsFeed functionality
 twitter = Twitter()
 twitter.postTweet(1, 1)
 twitter.postTweet(1, 2)
 feed = twitter.getNewsFeed(1)
 assert feed == [2, 1], f"Expected [2, 1] but got {feed}"
 
-# Test 2: test multiple user postTweet and getNewsFeed functionality
+# Test 2: Multiple user postTweet and getNewsFeed functionality
 twitter = Twitter()
 twitter.postTweet(1, 1)
 twitter.postTweet(2, 2)
@@ -81,7 +81,7 @@ twitter.follow(1, 2)
 feed = twitter.getNewsFeed(1)
 assert feed == [3, 2, 1], f"Expected [3, 2, 1] but got {feed}"
 
-# Test 3: test follow / unfollow functionality
+# Test 3: Follow / unfollow functionality
 twitter = Twitter()
 twitter.postTweet(1, 1)
 twitter.postTweet(2, 2)
@@ -92,7 +92,7 @@ twitter.unfollow(1, 2)
 feed = twitter.getNewsFeed(1)
 assert feed == [1], f"Expected [1] but got {feed}"
 
-# Test 4: test >10 tweets
+# Test 4: >10 tweets
 twitter = Twitter()
 
 for i in range(1, 12):
