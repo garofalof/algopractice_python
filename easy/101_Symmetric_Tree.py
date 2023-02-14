@@ -24,7 +24,7 @@ class Solution:
 """
 Explanation:
 
-Call helper function dfs with root node as n1 and n2, initiating the comparison of the entire tree. If both n1 and n2 are null, return true. If either n1 or n2 is null, or the values of n1 and n2 are not equal, return false. Otherwise, return the result of two recursive calls to dfs, one with n1.left and n2.right, and the other with n1.right and n2.left.
+Return the call to helper function dfs with root node as n1 and n2, initiating the comparison of the entire tree. If both n1 and n2 are null, return true. If either n1 or n2 is null, or the values of n1 and n2 are not equal, return false. Otherwise, return the result of two recursive calls to dfs, one with n1.left and n2.right, and the other with n1.right and n2.left.
 
 Notes:
 
