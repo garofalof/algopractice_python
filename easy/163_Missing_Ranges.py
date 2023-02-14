@@ -68,3 +68,10 @@ upper = 10
 result = Solution().findMissingRanges(nums, lower, upper)
 assert result == [
     "0", "2", "4", "6", "8", "10"], f"Expected ['0', '2', '4', '6', '8', '10'] but got {result}"
+
+# Test 6: Empty list
+nums = []
+lower = 0
+upper = 10
+result = Solution().findMissingRanges(nums, lower, upper)
+assert result == ["0->10"], f"Expected ['0->10'] but got {result}"
