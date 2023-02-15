@@ -30,6 +30,7 @@ class Solution:
         visited.add(course)
         return False
 
+
 """
 Explanation:
 
