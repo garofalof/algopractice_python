@@ -21,7 +21,7 @@ Explanation:
 
 Determine the sign of the result by checking if the signs of the dividend and divisor are the same. Take the absolute value of the inputs, since we only need to work with positive integers. Then, repeatedly subtract the divisor from the dividend until the dividend is less than the divisor. Keep track of how many times the divisor was subtracted (the "multiple") and double the multiple and the divisor in each iteration.
 
-Finally, return the result, taking into account the sign of the inputs, and ensuring that the result does not exceed the range of a 32-bit signed integer (between -2^31 and 2^31-1).
+Finally, return the result, taking into account the sign of the inputs, and ensuring that the result does not exceed the range of a 32-bit signed integer.
 
 Notes:
 
