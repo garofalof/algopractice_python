@@ -5,37 +5,38 @@ from typing import List
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         result = []
+        used = set()
 
-        def dfs(nums: List[int], memo: list) -> None:
+        def dfs(memo: List[int]) -> None:
             if len(memo) == len(nums):
                 result.append(list(memo))
                 return
 
-            for i in range(len(nums)):
-                curr = nums[i]
-
-                if curr in memo:
+            for i, num in enumerate(nums):
+                if i in used:
                     continue
 
+                curr = num
+                used.add(i)
                 memo.append(curr)
-                dfs(nums, memo)
+                dfs(memo)
                 memo.pop()
+                used.remove(i)
 
-        dfs(nums, [])
-
+        dfs([])
         return result
 
 
 """
 Explanation:
 
-Initialize result array to store final permutations. Create a function called dfs which takes two inputs, nums and memo, where memo is a set that stores the current permutation. If the size of memo is equal to the length of nums, push the current permutation to result. For each number in nums, if it's not already in memo, add it to memo, call the dfs function with the updated memo, and then remove it from memo to backtrack. The final result will contain all the permutations.
+Initialize result array to store final permutations and used set to store visited elements. Create a function called dfs which takes memo as input. If the size of memo is equal to the length of nums, push the current permutation to result. For each number in nums, if it's not already in used, add it to memo and used, call the dfs function with the updated memo, and then remove it from memo and used to backtrack. The final result will contain all the permutations.
 
 Notes:
 
-Time Complexity: O(n * n!), where n is the length of the input array nums. For each element in nums, we have n-1 choices, so the time complexity is dominated by the number of permutations, which is n!.
+Time Complexity: O(n! * n), since we create a copy of the current permutation every time we find a valid permutation. Since the length of the permutation is n, creating a copy takes O(n) time, and we do this for each of the n! permutations, resulting in a total time complexity of O(n! * n).
 
-Space Complexity: O(n * n!), where n is the length of the input array nums. The space complexity is proportional to the number of permutations, which is n!, because we need to store all the permutations.
+Space Complexity: O(n! * n), since we create a new list of length n for each permutation, and there are n! possible permutations. Therefore, the total space required is n! * n. Additionally, we use a set to store the indices of used elements, which requires at most O(n) space. Overall, the space complexity is O(n! * n + n), which simplifies to O(n! * n).
 """
 
 # Test 1: Single element
