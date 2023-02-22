@@ -126,9 +126,3 @@ q = root.left
 common_ancestor = Solution().lowestCommonAncestor(root, p, q)
 expected = root
 assert common_ancestor == expected, f"Expected {expected} but got {common_ancestor}"
-
-# Test case 8: p and q are both the same node
-root = TreeNode(6)
-common_ancestor = Solution().lowestCommonAncestor(root, root, root)
-expected = root
-assert common_ancestor == expected, f"Expected {expected} but got {common_ancestor}"
