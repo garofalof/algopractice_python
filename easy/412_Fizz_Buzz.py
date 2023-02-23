@@ -12,6 +12,7 @@ class Solution:
 
         return result
 
+
 """
 Explanation:
 
@@ -45,5 +46,6 @@ assert fizz_buzz == expected, f"Expected {expected} but got {fizz_buzz}"
 # Test 4: n == 15
 n = 15
 fizz_buzz = Solution().fizzBuzz(n)
-expected = ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
+expected = ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8',
+            'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
 assert fizz_buzz == expected, f"Expected {expected} but got {fizz_buzz}"
