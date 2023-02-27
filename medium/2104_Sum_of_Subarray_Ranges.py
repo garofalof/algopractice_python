@@ -20,7 +20,7 @@ class Solution:
 """
 Explanation:
 
-Iterating over all possible start points i of a subarray. For each i, then iterates over all possible end points j of the subarray that starts at i + 1. For each pair of indices (i, j), calculate the smallest and largest elements of the subarray, smaller and larger, respectively. Then add the difference between larger and smaller to the running total. Once done iterating over all subarray ranges, return the total count of subarrays whose elements are in non-descending order.
+Iterate over all possible start points i of a subarray. For each i, then iterates over all possible end points j of the subarray that starts at i + 1. For each pair of indices (i, j), calculate the smallest and largest elements of the subarray, smaller and larger, respectively. Then add the difference between larger and smaller to the running total. Once done iterating over all subarray ranges, return the total count of subarrays whose elements are in non-descending order.
 
 Notes:
 

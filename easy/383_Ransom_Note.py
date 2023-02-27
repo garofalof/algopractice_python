@@ -6,15 +6,15 @@ class Solution:
         if len(ransomNote) > len(magazine):
             return False
 
-        char_map = Counter(magazine)
+        note_count = Counter(ransomNote)
+        mag_count = Counter(magazine)
 
-        for char in ransomNote:
-            if char_map[char] <= 0 or char not in char_map:
+        for char in note_count:
+            if note_count[char] > mag_count[char]:
                 return False
 
-            char_map[char] -= 1
-
         return True
+
 
 """
 Explanation:
