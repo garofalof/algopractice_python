@@ -58,7 +58,7 @@ has_next_call = iterator.hasNext()
 expected = False
 assert has_next_call == expected, f"Expected {expected} but got {has_next_call}"
 
-# Test 2: Flat list
+# Test 3: Flat list
 nested = [1, 2, 3]
 iterator = NestedIterator(nested)
 next_call = iterator.next()
@@ -80,7 +80,7 @@ has_next_call = iterator.hasNext()
 expected = False
 assert has_next_call == expected, f"Expected {expected} but got {has_next_call}"
 
-# Test 2: Nested list
+# Test 4: Nested list
 nested = [1, [[2, 3]]]
 iterator = NestedIterator(nested)
 next_call = iterator.next()
