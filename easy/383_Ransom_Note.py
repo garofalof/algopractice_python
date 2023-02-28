@@ -19,7 +19,7 @@ class Solution:
 """
 Explanation:
 
-Initialize dictionary char_map to store the frequency of each character in the magazine. Iterate through each character in the ransom note, checking if the character is present in char_map and if its frequency is > 0. If either of these conditions is not met, return False. If the entire ransom note can be constructed from the magazine, return True.
+Initialize dictionary note_count and mag_count to store the frequency of each character in the magazine. Iterate through each character in note_count, checking if the character frequency in note_count > the character frequency in mag_count. If so, return False. If the entire ransom note can be constructed from the magazine, return True.
 
 Notes:
 
