@@ -37,7 +37,7 @@ is_happy = Solution().isHappy(n)
 expected = True
 assert is_happy == expected, f"Expected {expected} but got {is_happy}"
 
-# Test 3: n > 1, happy
+# Test 3: n > 1, not happy
 n = 64
 is_happy = Solution().isHappy(n)
 expected = False
