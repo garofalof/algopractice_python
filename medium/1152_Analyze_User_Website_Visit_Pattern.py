@@ -56,9 +56,45 @@ Space complexity: O(n), where n is the length of the input lists. This is due to
 """
 
 # Test 1: Single user visiting 3 sites in chronological order
-username = ['john']
+username = ['john', 'john', 'john']
 timestamp = [1, 2, 3]
 website = ['web1', 'web2', 'web3']
+most_visited_pattern = Solution().mostVisitedPattern(username, timestamp, website)
+expected = ['web1', 'web2', 'web3']
+assert most_visited_pattern == expected, f"Expected {expected} but got {most_visited_pattern}"
+
+# Test 2: Three users, two visited same sites in chronological order
+username = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
+timestamp = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+website = ['web1', 'web2', 'web3', 'web2',
+           'web1', 'web3', 'web1', 'web2', 'web3']
+most_visited_pattern = Solution().mostVisitedPattern(username, timestamp, website)
+expected = ['web1', 'web2', 'web3']
+assert most_visited_pattern == expected, f"Expected {expected} but got {most_visited_pattern}"
+
+# Test 3: Three users, all separate patterns
+username = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
+timestamp = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+website = ['web1', 'web2', 'web3', 'web2',
+           'web1', 'web3', 'web3', 'web2', 'web1']
+most_visited_pattern = Solution().mostVisitedPattern(username, timestamp, website)
+expected = ['web1', 'web2', 'web3']
+assert most_visited_pattern == expected, f"Expected {expected} but got {most_visited_pattern}"
+
+# Test 4: Three users, all same patterns
+username = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
+timestamp = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+website = ['web1', 'web2', 'web3', 'web1',
+           'web2', 'web3', 'web1', 'web2', 'web3']
+most_visited_pattern = Solution().mostVisitedPattern(username, timestamp, website)
+expected = ['web1', 'web2', 'web3']
+assert most_visited_pattern == expected, f"Expected {expected} but got {most_visited_pattern}"
+
+# Test 5: Three users, two visited same sites in chronological order, mixed
+username = ['a', 'b', 'a', 'b', 'c', 'a', 'b', 'c', 'c']
+timestamp = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+website = ['web1', 'web1', 'web2', 'web2',
+           'web1', 'web3', 'web3', 'web3', 'web2']
 most_visited_pattern = Solution().mostVisitedPattern(username, timestamp, website)
 expected = ['web1', 'web2', 'web3']
 assert most_visited_pattern == expected, f"Expected {expected} but got {most_visited_pattern}"
