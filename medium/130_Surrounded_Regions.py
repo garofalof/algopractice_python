@@ -6,24 +6,21 @@ class Solution:
         rows, cols = len(board), len(board[0])
 
         def dfs(r, c):
-            if board[r][c] == 'O':
-                board[r][c] = '*'
+            board[r][c] = '*'
 
-                for nr, nc in [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]:
-                    if 0 <= nr < rows and 0 <= nc < cols:
-                        dfs(nr, nc)
+            for nr, nc in [(r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1)]:
+                if 0 <= nr < rows and 0 <= nc < cols and board[nr][nc] == 'O':
+                    dfs(nr, nc)
 
         for r in range(rows):
             for c in range(cols):
-                if r == 0 or c == 0 or r == rows - 1 or c == cols - 1:
+                if (r in (0, rows - 1) or c in (0, cols - 1)) and board[r][c] == 'O':
                     dfs(r, c)
         for r in range(rows):
             for c in range(cols):
-                node = board[r][c]
-
-                if node == '*':
+                if board[r][c] == '*':
                     board[r][c] = 'O'
-                if node == 'O':
+                else:
                     board[r][c] = 'X'
 
 
