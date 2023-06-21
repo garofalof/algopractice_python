@@ -41,7 +41,7 @@ Finally, return the values from level_map as a list of lists once stack is empty
 
 Notes:
 
-Time complexity: O(n), as we visit each node exactly once.
+Time complexity: O(n ^ 2), as we concatenate the array inside the traversal at every other iteration, but can be brought down to O(n) using a queue.
 
 Space complexity: O(n), where n is the number of nodes in the tree, as the space used in the stack and level_map is directly proportional to number of nodes in the tree.
 """
