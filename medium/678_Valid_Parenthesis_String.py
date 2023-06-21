@@ -12,11 +12,10 @@ class Solution:
             else:
                 left_min -= 1
                 left_max += 1
-
-        if left_max < 0:
-            return False
-        if left_min < 0:
-            left_min = 0
+            if left_max < 0:
+                return False
+            if left_min < 0:
+                left_min = 0
 
         return left_min == 0
 
