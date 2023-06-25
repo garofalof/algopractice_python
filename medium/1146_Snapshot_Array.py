@@ -26,6 +26,7 @@ class SnapshotArray:
 
         return data[i][0] if i != -1 else 0
 
+
 """
 Explanation:
 
@@ -94,4 +95,3 @@ assert val_8 == 300, f"Expected {300} but got {val_8}"
 assert val_9 == 150, f"Expected {150} but got {val_9}"
 assert val_10 == 250, f"Expected {250} but got {val_10}"
 assert val_11 == 300, f"Expected {300} but got {val_11}"
-
