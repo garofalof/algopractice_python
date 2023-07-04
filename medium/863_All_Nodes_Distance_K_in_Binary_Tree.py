@@ -1,3 +1,6 @@
+from typing import List
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -6,43 +9,34 @@ class TreeNode:
 
 
 class Solution:
-    def __init__(self):
-        self.visited = set()
-        self.parents = {}
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        node_map = {}
 
-    def distanceK(self, root, target, k):
+        def build_node_map(node, parent):
+            if node:
+                node_map[node] = parent
+                build_node_map(node.left, node)
+                build_node_map(node.right, node)
+
+        build_node_map(root, None)
+
         result = []
+        visited = set()
 
-        def findTarget(node, parent, target):
-            if not node:
-                return None
-
-            self.parents[node] = parent
-
-            if node == target:
-                return node
-
-            return findTarget(node.left, node, target) or findTarget(node.right, node, target)
-
-        def findKApart(node, k, result):
-            if not node or node in self.visited:
+        def dfs(node, k):
+            if not node or node in visited:
                 return
-
             if k == 0:
                 result.append(node.val)
                 return
 
-            self.visited.add(node)
+            visited.add(node)
 
-            findKApart(node.left, k - 1, result)
-            findKApart(node.right, k - 1, result)
+            dfs(node.left, k - 1)
+            dfs(node.right, k - 1)
+            dfs(node_map.get(node), k - 1)
 
-            if node in self.parents:
-                findKApart(self.parents[node], k - 1, result)
-
-        node = findTarget(root, None, target)
-
-        findKApart(node, k, result)
+        dfs(target, k)
 
         return result
 
@@ -50,11 +44,11 @@ class Solution:
 """
 Explanation:
 
-First, initialize an empty result list, a set of visited nodes, and a dictionary parents that maps each node to its parent. Then define a helper function findTarget that takes in a node, its parent, and the target node, and returns the target node if found, and otherwise recursively calls itself on the node's left and right children. While traversing the tree, populate the parents dictionary with each node and its parent.
+Create a `node_map` dictionary, which maps each node to its parent. This mapping is created by traversing the binary tree using a recursive helper function called `build_node_map`. Next, initialize an empty list `result` to store the node values at distance k and create a `visited` set to keep track of visited nodes during the traversal.
 
-Next, define another helper function findKApart that takes in a node, a distance k, and the result list. First check if the node is None or has been visited. If it hasn't, and k is 0, append the node's value to the result list. Otherwise, we mark the node as visited, and recursively call findKApart on the node's left and right children with k-1. We also check if the current node has a parent in the parents dictionary, and if so, recursively call findKApart on the parent with k-1.
+The main traversal happens in the DFS function. It takes a node and the current k distance as input. It first checks if the node is either null or has been visited before. If so, it returns to exit. If k becomes zero, it means we have reached a node at the desired distance from the target. In this case, we append the node's value to the result list and return to exit. If the above conditions are not met, we add the current node to the visited set to mark it as visited. Then we recursively call dfs on the left child, right child, and the parent of the current node. The k distance is reduced by 1 in each recursive call.
 
-Finally, call findTarget on the root node to find the target node. Then call findKApart on the target node with k and the result list. Once done, return the result list.
+After the DFS function completes, the result list contains the node values at distance k from the target node and is returned as output.
 
 Notes:
 
